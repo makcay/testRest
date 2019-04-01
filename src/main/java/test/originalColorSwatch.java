@@ -71,7 +71,7 @@ public class originalColorSwatch {
                 //by usşng reflection find the color in the Color classes fields and use it
                 Field field = Class.forName("java.awt.Color").getField(basicColor.toLowerCase());
                 color = (Color)field.get(null);
-                hex = Integer.toHexString(color.getRGB() & 0xffffff);
+                hex = String.format("0x%06X",color.getRGB() & 0xffffff);
             } catch (Exception e) {
                 color = null; // Not defined
             }
