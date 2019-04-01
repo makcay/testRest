@@ -3,8 +3,6 @@ package test;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.math.BigDecimal;
-
 public class originalPrice{
     @JsonIgnoreProperties(ignoreUnknown = true)
     private String was;
