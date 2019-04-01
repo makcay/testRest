@@ -19,7 +19,7 @@ public class restController{
     @RequestMapping("/testRest")
     public List<product> index(@RequestParam(value="labelType", defaultValue="ShowWasNow") String labelType){
         RestTemplate restTemplate=new RestTemplate();
-        restTemplate.getMessageConverters().add(new Jaxb2RootElementHttpMessageConverter());
+        //restTemplate.getMessageConverters().add(new Jaxb2RootElementHttpMessageConverter());
         restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
 
         List<originalProduct> products = restTemplate.getForObject(url,originalProductsResponse.class).getProducts();
@@ -55,6 +55,7 @@ public class restController{
                 newCs.setSkuid(cs.getSkuId());
                 colorSwatches.add(newCs);
             }
+            newProduct.setNowPrice(tmp.getPrice().getPriceNowWithCurrency());
             newProduct.setColorSwatches(colorSwatches.stream().toArray(ColorSwatch[]::new));
             newProduct.setPriceLabel(tmp.getPrice().getPriceText(labelType));
 

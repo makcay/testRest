@@ -103,6 +103,14 @@ public class originalPrice{
         return ret;
     }
 
+    public String getPriceNowWithCurrency(){
+        String ret="";
+        if (getNowObject()!=null){
+            ret=currencySign+getNowObject().getNowPrice();
+        }
+        return ret;
+    }
+
     public String getPriceText(String labelType){
         String ret="";
         if ("ShowWasNow".equalsIgnoreCase(labelType)){
