@@ -1,4 +1,4 @@
-package test;
+package com.test;
 
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +13,8 @@ import java.util.stream.Collectors;
 @RestController
 public class restController{
 
-    private final String url="https://jl-nonprod-syst.apigee.net/v1/categories/600001506/products?key=2ALHCAAs6ikGRBoy6eTHA58RaG097Fma";
+    //private final String url="https://jl-nonprod-syst.apigee.net/v1/categories/600001506/products?key=2ALHCAAs6ikGRBoy6eTHA58RaG097Fma";
+    private final String url="http://localhost:8080/fileMock";
 
     @RequestMapping("/testRest")
     public List<product> index(@RequestParam(value="labelType", defaultValue="ShowWasNow") String labelType){
@@ -39,7 +40,7 @@ public class restController{
         //filter the products that have discount only and sort according to the discount
         input=input.stream()
                 .filter(orgP -> orgP.getPrice().getdiscount()>0 )
-                .sorted((l, r) -> l.getPrice().getdiscount().compareTo(r.getPrice().getdiscount()))
+                .sorted((l, r) -> r.getPrice().getdiscount().compareTo(l.getPrice().getdiscount()))
                 .collect(Collectors.toList());
 
         for (originalProduct tmp:input) {

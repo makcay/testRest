@@ -1,4 +1,4 @@
-package test;
+package com.test;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
