@@ -50,7 +50,8 @@ public class restController{
             List<ColorSwatch> colorSwatches=new ArrayList<ColorSwatch>();
             for(originalColorSwatch cs:tmp.getColorSwatches()){
                 ColorSwatch newCs=new ColorSwatch();
-                newCs.setColor(cs.getHexColor());
+                newCs.setColor(cs.getColor());
+                newCs.setRgbColor(cs.getHexColor());
                 newCs.setSkuid(cs.getSkuId());
                 colorSwatches.add(newCs);
             }
