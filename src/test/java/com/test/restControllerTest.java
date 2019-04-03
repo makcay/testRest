@@ -1,17 +1,19 @@
 package com.test;
 
 import org.junit.jupiter.api.*;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+@SpringBootApplication
 class restControllerTest {
     private static restController controller;
 
     @BeforeAll
     static void setUp() {
         controller=new restController("http://localhost:8080/fileMock");
+        SpringApplication.run(com.test.restControllerTest.class, new String[0]);
     }
 
     @Test

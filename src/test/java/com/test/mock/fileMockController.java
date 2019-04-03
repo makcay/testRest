@@ -1,6 +1,5 @@
-package com.mock;
+package com.test.mock;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
