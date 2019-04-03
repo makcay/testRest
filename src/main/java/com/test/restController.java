@@ -13,8 +13,14 @@ import java.util.stream.Collectors;
 @RestController
 public class restController{
 
-    //private final String url="https://jl-nonprod-syst.apigee.net/v1/categories/600001506/products?key=2ALHCAAs6ikGRBoy6eTHA58RaG097Fma";
-    private final String url="http://localhost:8080/fileMock";
+    private String url="https://jl-nonprod-syst.apigee.net/v1/categories/600001506/products?key=2ALHCAAs6ikGRBoy6eTHA58RaG097Fma";
+
+    public restController(){
+    }
+
+    public restController(String url){
+        this.url=url;
+    }
 
     @RequestMapping("/testRest")
     public List<product> index(@RequestParam(value="labelType", defaultValue="ShowWasNow") String labelType){
@@ -27,7 +33,7 @@ public class restController{
         List<product> result=null;
 
         if (products!=null) {
-            System.out.println(products.toString());
+            products.stream().forEach(p-> System.out.println(p.getProductId()+":"+p.getTitle()));
             result=convertProducts(products, labelType);
         }
 

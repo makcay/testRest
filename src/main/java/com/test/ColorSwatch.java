@@ -1,9 +1,6 @@
 package com.test;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 public class ColorSwatch {
-    @Autowired
     private String color;
     private String rgbColor;
     private String skuid;

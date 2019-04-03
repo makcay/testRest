@@ -81,8 +81,8 @@ public class originalPrice{
             Double wasDouble=Double.valueOf(this.was);
             Double nowDouble=Double.valueOf(this.nowObject.getNowPrice());
             this.discount = wasDouble-nowDouble;
-            Double percentage=this.discount/wasDouble;
-            this.discountPercentage=percentage.toString();
+            Double percentage=this.discount/wasDouble*100;
+            this.discountPercentage=String.format("%.2g",percentage);
         }
     }
 
@@ -95,7 +95,7 @@ public class originalPrice{
         if (price!=null && price.length()>0) {
             Double priceDouble = Double.valueOf(price);
             ret=priceDouble.toString();
-            if (priceDouble > 10) {
+            if (priceDouble >= 10) {
                 priceDouble = Math.floor(priceDouble);
                 ret=String.format("%.0f", priceDouble);
             }
@@ -128,7 +128,7 @@ public class originalPrice{
             ret=ret+", now "+currencySign+nowObject.getNowPrice();
         }
         else if("ShowPercDscount".equalsIgnoreCase(labelType)){
-            ret="%"+discountPercentage+" off, - now "+currencySign+nowObject.getNowPrice();
+            ret=discountPercentage+"% off - now "+currencySign+nowObject.getNowPrice();
         }
         return ret;
     }

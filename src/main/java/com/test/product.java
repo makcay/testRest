@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class product {
-    @Autowired
     private String title;
     private ColorSwatch[] colorSwatches;
     private String nowPrice;
@@ -52,9 +51,4 @@ public class product {
     public void setPriceLabel(String priceLabel) {
         this.priceLabel = priceLabel;
     }
-
-
-
-
-
 }

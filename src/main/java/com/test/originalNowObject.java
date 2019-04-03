@@ -44,7 +44,7 @@ public class originalNowObject{
     }
 
     public void setSimpleNow(String simpleNow) {
-        this.simpleNow = simpleNow;
+        this.simpleNow = originalPrice.roundPrice(simpleNow);
     }
 
     public String getNowPrice(){
