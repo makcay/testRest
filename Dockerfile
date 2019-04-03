@@ -12,4 +12,5 @@ RUN ["mvn", "package"]
 FROM openjdk:8-jre-alpine
 WORKDIR /app
 COPY --from=build /app/target/testRest-1.0.jar /app
+COPY --from=build /app/files /app/files
 CMD ["java","-jar","testRest-1.0.jar"]
