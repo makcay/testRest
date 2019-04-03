@@ -37,7 +37,7 @@ class productTest {
         ArrayList<ColorSwatch> ocs=new ArrayList<ColorSwatch>();
         ocs.add(new ColorSwatch());
         ocs.add(new ColorSwatch());
-        ColorSwatch[] listCs=(ColorSwatch[])ocs.toArray(new ColorSwatch[ocs.size()]);
+        ColorSwatch[] listCs=ocs.stream().toArray(ColorSwatch[]::new);
 
         p.setColorSwatches(listCs);
         ColorSwatch[] list2=p.getColorSwatches();

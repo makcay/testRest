@@ -77,7 +77,7 @@ class originalProductTest {
         ocs.add(new originalColorSwatch());
         ocs.add(new originalColorSwatch());
         originalProduct op=new originalProduct();
-        originalColorSwatch[] listCs=(originalColorSwatch[])ocs.toArray(new originalColorSwatch[ocs.size()]);
+        originalColorSwatch[] listCs=ocs.stream().toArray(originalColorSwatch[]::new);
         op.setColorSwatches(listCs);
         originalColorSwatch[] list2=op.getColorSwatches();
         Assertions.assertEquals(listCs,list2);
